@@ -1,4 +1,3 @@
-const { ValidationError } = require('express-validation');
 const constants = require('../config/constants');
 class CustomError extends Error {
     constructor(message, code) {
@@ -18,21 +17,7 @@ exports.errorHandler = (err, req, res, _next) => {
             errType: constants.ERROR_TYPES.HTTP
         });
     }
-    if (err instanceof ValidationError) {
-        const validationErrors = {};
-        Object.keys(err.details).forEach((key) => {
-            const details = err.details[key];
-            details.forEach((d) => {
-                validationErrors[d.path.join('.')] = d.message;
-            });
-        });
-        return res.status(400).json({
-            err: true,
-            msg: 'Validation Error',
-            details: validationErrors,
-            errType: constants.ERROR_TYPES.VALIDATION
-        });
-    }
+
     if (err instanceof CustomError) {
         err.stack;
         return res.status(200).json({
