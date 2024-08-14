@@ -1,13 +1,13 @@
 const SubCategory = require("../models/subCategory");
 const Category = require("../models/category");
 
-// Create a new sub-category
-exports.createSubCategory = async (req, res) => {
+
+exports.createSubCategory = async (req, res, next) => {
 	try {
 		const subCategory = new SubCategory(req.body);
 		await subCategory.save();
 
-		// Add sub-category to the parent category
+		
 		if (req.body.category) {
 			await Category.findByIdAndUpdate(
 				req.body.category,
@@ -18,21 +18,21 @@ exports.createSubCategory = async (req, res) => {
 
 		res.status(201).json(subCategory);
 	} catch (error) {
-		res.status(400).json({ error: error.message });
+		next(error);
 	}
 };
 
-// Get all sub-categories
-exports.getSubCategories = async (req, res) => {
+
+exports.getSubCategories = async (req, res, next) => {
 	try {
 		const subCategories = await SubCategory.find().populate("items");
 		res.status(200).json(subCategories);
 	} catch (error) {
-		res.status(500).json({ error: error.message });
+		next(error);
 	}
 };
 
-exports.getSubCategoryByAttribute = async (req, res) => {
+exports.getSubCategoryByAttribute = async (req, res, next) => {
 	try {
 		const data = req.body;
 
@@ -40,42 +40,45 @@ exports.getSubCategoryByAttribute = async (req, res) => {
 
 		res.status(200).json(subCategory);
 	} catch (error) {
-		res.status(500).json({ error: error.message });
+		next(error);
 	}
 };
 
-
-exports.getAllSubCategoryUnderCategory = async (req, res) => {
-  try {
-    const category = await Category.findById(req.params.categoryId).populate({
-      path: 'subCategories',
-      populate: {
-        path: 'items',
-        model: 'Item'
-      }
-    }).select("subCategories");
-    if (!category) return res.status(404).json({ error: 'Category not found' });
-    res.status(200).json(category);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
-
-
-
-exports.editSubCategory = async (req, res) => {
+exports.getAllSubCategoryUnderCategory = async (req, res, next) => {
 	try {
-	  const subCategoryId = req.params.subCategoryId;
-	  const updatedData = req.body;
-  
-	  const subCategory = await SubCategory.findByIdAndUpdate(subCategoryId, updatedData, { new: true });
-  
-	  if (!subCategory) {
-		return res.status(404).json({ error: 'Sub-category not found' });
-	  }
-  
-	  res.status(200).json(subCategory);
+		const category = await Category.findById(req.params.categoryId)
+			.populate({
+				path: "subCategories",
+				populate: {
+					path: "items",
+					model: "Item",
+				},
+			})
+			.select("subCategories");
+		if (!category) throw new CustomError("Category not found", 404);
+		res.status(200).json(category);
 	} catch (error) {
-	  res.status(500).json({ error: error.message });
+		next(error);
 	}
-  };
+};
+
+exports.editSubCategory = async (req, res, next) => {
+	try {
+		const subCategoryId = req.params.subCategoryId;
+		const updatedData = req.body;
+
+		const subCategory = await SubCategory.findByIdAndUpdate(
+			subCategoryId,
+			updatedData,
+			{ new: true },
+		);
+
+		if (!subCategory) {
+			throw new CustomError("Sub-category not found", 404);
+		}
+
+		res.status(200).json(subCategory);
+	} catch (error) {
+		next(error);
+	}
+};

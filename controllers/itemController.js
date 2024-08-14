@@ -1,8 +1,9 @@
+const { CustomError } = require("../helpers/errorHelper");
 const Category = require("../models/category");
 const Item = require("../models/item");
 const SubCategory = require("../models/subCategory");
 
-exports.createItem = async (req, res) => {
+exports.createItem = async (req, res, next) => {
 	try {
 		const item = new Item(req.body);
 		await item.save();
@@ -17,20 +18,20 @@ exports.createItem = async (req, res) => {
 
 		res.status(201).json(item);
 	} catch (error) {
-		res.status(400).json({ error: error.message });
+		next(error);
 	}
 };
 
-exports.getItems = async (req, res) => {
+exports.getItems = async (req, res, next) => {
 	try {
 		const items = await Item.find();
 		res.status(200).json(items);
 	} catch (error) {
-		res.status(500).json({ error: error.message });
+		next(error);
 	}
 };
 
-exports.getAllItemsUnderCategory = async (req, res) => {
+exports.getAllItemsUnderCategory = async (req, res, next) => {
 	try {
 		const categoryId = req.params.categoryId;
 		const category = await Category.findById(categoryId).populate({
@@ -42,7 +43,7 @@ exports.getAllItemsUnderCategory = async (req, res) => {
 		});
 
 		if (!category) {
-			return res.status(404).json({ error: "Category not found" });
+			throw new CustomError("Category not found", 404);
 		}
 
 		const items = category.subCategories.flatMap(
@@ -51,11 +52,11 @@ exports.getAllItemsUnderCategory = async (req, res) => {
 
 		res.status(200).json(items);
 	} catch (error) {
-		res.status(500).json({ error: error.message });
+		next(error);
 	}
 };
 
-exports.getAllItemsUnderSubCategory = async (req, res) => {
+exports.getAllItemsUnderSubCategory = async (req, res, next) => {
 	try {
 		const subCategoryId = req.params.subCategoryId;
 
@@ -64,23 +65,21 @@ exports.getAllItemsUnderSubCategory = async (req, res) => {
 		);
 
 		if (!subCategory) {
-			return res.status(404).json({ error: "Sub-category not found" });
+			throw new CustomError("Sub-category not found", 404);
 		}
 
 		res.status(200).json(subCategory.items);
 	} catch (error) {
-		res.status(500).json({ error: error.message });
+		next(error);
 	}
 };
 
-exports.getByAttribute = async (req, res) => {
+exports.getByAttribute = async (req, res, next) => {
 	try {
 		const { attribute, value } = req.query;
 
 		if (!attribute || !value) {
-			return res
-				.status(400)
-				.json({ error: "Attribute and value are required" });
+			throw new CustomError("Attribute and value are required", 400);
 		}
 
 		const query = {};
@@ -90,43 +89,41 @@ exports.getByAttribute = async (req, res) => {
 
 		res.status(200).json(items);
 	} catch (error) {
-		res.status(500).json({ error: error.message });
+		next(error);
 	}
 };
 
+exports.editItem = async (req, res, next) => {
+	try {
+		const itemId = req.params.itemId;
+		const updatedData = req.body;
 
-exports.editItem = async (req, res) => {
-  try {
-    const itemId = req.params.itemId;
-    const updatedData = req.body;
+		const item = await Item.findByIdAndUpdate(itemId, updatedData, {
+			new: true,
+		});
 
-    const item = await Item.findByIdAndUpdate(itemId, updatedData, { new: true });
+		if (!item) {
+			throw new CustomError("Item not found", 404);
+		}
 
-    if (!item) {
-      return res.status(404).json({ error: 'Item not found' });
-    }
-
-    res.status(200).json(item);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
+		res.status(200).json(item);
+	} catch (error) {
+		next(error);
+	}
 };
 
+exports.searchItemByName = async (req, res, next) => {
+	try {
+		const itemName = req.query.name;
 
+		if (!itemName) {
+			throw new CustomError("Name query parameter is required", 400);
+		}
 
+		const items = await Item.find({ name: new RegExp(itemName, "i") });
 
-exports.searchItemByName = async (req, res) => {
-  try {
-    const itemName = req.query.name;
-
-    if (!itemName) {
-      return res.status(400).json({ error: 'Name query parameter is required' });
-    }
-
-    const items = await Item.find({ name: new RegExp(itemName, 'i') }); 
-
-    res.status(200).json(items);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
+		res.status(200).json(items);
+	} catch (error) {
+		next(error);
+	}
 };
