@@ -10,11 +10,10 @@ const categorySchema = new mongoose.Schema({
     default: 0
   },
   taxType: String,
-  subCategorys : {
-    type : [mongoose.Schema.Types.ObjectId],
-    default : [],
+  subCategories : [{
+    type :mongoose.Schema.Types.ObjectId,
     ref : "SubCategory"
-  }
+  }]
 });
 
 module.exports = mongoose.model('Category', categorySchema);
