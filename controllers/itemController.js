@@ -5,7 +5,13 @@ const SubCategory = require("../models/subCategory");
 
 exports.createItem = async (req, res, next) => {
 	try {
-		const item = new Item(req.body);
+		let data = req.body;
+		if (data.discount) {
+			data.totalAmount = data.baseAmount - data.discount;
+		} else {
+			data.totalAmount = data.baseAmount;
+		}
+		const item = new Item(data);
 		await item.save();
 
 		if (req.body.subCategory) {
@@ -16,7 +22,7 @@ exports.createItem = async (req, res, next) => {
 			);
 		}
 
-		res.status(201).json(item);
+		res.status(201).json({ error: false, data: item });
 	} catch (error) {
 		next(error);
 	}
@@ -25,7 +31,10 @@ exports.createItem = async (req, res, next) => {
 exports.getItems = async (req, res, next) => {
 	try {
 		const items = await Item.find();
-		res.status(200).json(items);
+		if (!items) {
+			throw new CustomError("Item not found", 404);
+		}
+		res.status(200).json({ error: false, data: items });
 	} catch (error) {
 		next(error);
 	}
@@ -50,7 +59,11 @@ exports.getAllItemsUnderCategory = async (req, res, next) => {
 			(subCategory) => subCategory.items,
 		);
 
-		res.status(200).json(items);
+		if (!items) {
+			throw new CustomError("Items not found", 404);
+		}
+
+		res.status(200).json({ error: false, data: items });
 	} catch (error) {
 		next(error);
 	}
@@ -68,7 +81,11 @@ exports.getAllItemsUnderSubCategory = async (req, res, next) => {
 			throw new CustomError("Sub-category not found", 404);
 		}
 
-		res.status(200).json(subCategory.items);
+		if (!subCategory.items) {
+			throw new CustomError("Item not found in the provided sub category", 404);
+		}
+
+		res.status(200).json({ error: false, data: subCategory.items });
 	} catch (error) {
 		next(error);
 	}
@@ -87,7 +104,11 @@ exports.getByAttribute = async (req, res, next) => {
 
 		const items = await Item.find(query);
 
-		res.status(200).json(items);
+		if (!items) {
+			throw new CustomError("Item not found", 404);
+		}
+
+		res.status(200).json({ error: false, data: items });
 	} catch (error) {
 		next(error);
 	}
@@ -106,7 +127,7 @@ exports.editItem = async (req, res, next) => {
 			throw new CustomError("Item not found", 404);
 		}
 
-		res.status(200).json(item);
+		res.status(200).json({ error: false, data: item });
 	} catch (error) {
 		next(error);
 	}
@@ -122,7 +143,11 @@ exports.searchItemByName = async (req, res, next) => {
 
 		const items = await Item.find({ name: new RegExp(itemName, "i") });
 
-		res.status(200).json(items);
+		if (!items) {
+			throw new CustomError("Item not found", 404);
+		}
+
+		res.status(200).json({ error: false, data: items });
 	} catch (error) {
 		next(error);
 	}

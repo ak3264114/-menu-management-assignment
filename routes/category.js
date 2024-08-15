@@ -7,8 +7,11 @@ const {
   editCategory,
 } = require('../controllers/categoryController');
 
+const { validateCategory } = require('../validation');
+const { validate } = require('express-validation');
 
-router.post('/create', createCategory);
+
+router.post('/create', validate(validateCategory), createCategory);
 
 
 router.get('/all', getCategories);

@@ -13,8 +13,11 @@ const {
   searchItemByName
 } = require('../controllers/itemController');
 
+const { itemValidations } = require('../validation');
+const { validate } = require('express-validation');
 
-router.post('/create', createItem);
+
+router.post('/create', validate(itemValidations), createItem);
 
 
 router.get('/all', getItems);

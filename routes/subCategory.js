@@ -7,8 +7,10 @@ const {
   getAllSubCategoryUnderCategory,
   editSubCategory
 } = require('../controllers/subCategoryController');
+const { validate } = require('express-validation');
+const { subCategoryValidation } = require('../validation');
 
-router.post('/create', createSubCategory);
+router.post('/create',validate(subCategoryValidation), createSubCategory);
 
 router.get('/all', getSubCategories);
 

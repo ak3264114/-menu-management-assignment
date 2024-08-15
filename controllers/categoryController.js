@@ -2,11 +2,10 @@ const { CustomError } = require("../helpers/errorHelper");
 const Category = require("../models/category");
 
 exports.createCategory = async (req, res, next) => {
-	console.log(req.body);
 	try {
 		const category = new Category(req.body);
 		await category.save();
-		res.status(201).json(category);
+		res.status(201).json({ error: false, data: category });
 	} catch (error) {
 		next(error);
 	}
@@ -21,7 +20,7 @@ exports.getCategories = async (req, res, next) => {
 				model: "Item",
 			},
 		});
-		res.status(200).json(categories);
+		res.status(200).json({ error: false, data: categories });
 	} catch (error) {
 		next(error);
 	}
@@ -38,7 +37,7 @@ exports.getCategoryById = async (req, res, next) => {
 			},
 		});
 		if (!category) throw new CustomError("Category not found", 404);
-		res.status(200).json(category);
+		res.status(200).json({ error: false, data: category });
 	} catch (error) {
 		next(error);
 	}
@@ -57,7 +56,7 @@ exports.editCategory = async (req, res, next) => {
 			throw new CustomError("Category not found", 404);
 		}
 
-		res.status(200).json(category);
+		res.status(200).json({ error: false, data: category });
 	} catch (error) {
 		next(error);
 	}
