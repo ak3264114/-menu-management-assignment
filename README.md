@@ -1,7 +1,7 @@
 # Menu Management Backend
 
 ## Deployed Link
-
+https://menu-management-assignment.onrender.com
 
 ## Postman collection link
 https://github.com/ak3264114/menu-management-assignment/blob/main/menu-management-backend.postman_collection.json
@@ -29,7 +29,7 @@ https://github.com/ak3264114/menu-management-assignment/blob/main/menu-managemen
     PORT=4000
 
 ```bash
-npm start
+npm run dev
 ```
 
 # API Routes
