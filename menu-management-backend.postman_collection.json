@@ -1,0 +1,1570 @@
+{
+	"info": {
+		"_postman_id": "c8433382-82a3-403c-97fc-d5d7a27fe3b2",
+		"name": "menu-management-backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23038556"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"item": [
+				{
+					"name": "Create Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Electronics\",\r\n  \"image\": \"https://www.shutterstock.com/image-illustration/home-appliances-gas-cooker-tv-260nw-289191653.jpg\",\r\n  \"description\": \"Description of electronics items\",\r\n  \"taxApplicability\": true,\r\n  \"tax\": 18,\r\n  \"taxType\": \"salesTax\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/categories/create",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Category",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Electronics\",\r\n  \"image\": \"https://www.shutterstock.com/image-illustration/home-appliances-gas-cooker-tv-260nw-289191653.jpg\",\r\n  \"description\": \"Description of electronics items\",\r\n  \"taxApplicability\": true,\r\n  \"tax\": 18,\r\n  \"taxType\": \"salesTax\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/categories/create",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"categories",
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "293"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"125-c0FlpIA7C7w96FPmJX8eYAoHgiA\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Aug 2024 21:02:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Electronics\",\n    \"image\": \"https://www.shutterstock.com/image-illustration/home-appliances-gas-cooker-tv-260nw-289191653.jpg\",\n    \"description\": \"Description of electronics items\",\n    \"taxApplicability\": true,\n    \"tax\": 18,\n    \"taxType\": \"salesTax\",\n    \"subCategories\": [],\n    \"_id\": \"66bd1b582477bac47fb44d92\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Sub Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Mobiles\",\r\n  \"image\": \"https://www.91-cdn.com/hub/wp-content/uploads/2022/07/Top-laptop-brands-in-India.jpg\",\r\n  \"description\": \"Description of laptop\",\r\n  \"category\": \"66bd1b582477bac47fb44d92\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/subcategories/create",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"subcategories",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Laptops\",\r\n  \"image\": \"https://www.91-cdn.com/hub/wp-content/uploads/2022/07/Top-laptop-brands-in-India.jpg\",\r\n  \"description\": \"Description of laptop\",\r\n  \"category\": \"66bd1b582477bac47fb44d92\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/subcategories/create",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"subcategories",
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "211"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d3-lts4UL8NFthqoPaJ5C+F48BOdOw\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Aug 2024 21:09:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Laptops\",\n    \"image\": \"https://www.91-cdn.com/hub/wp-content/uploads/2022/07/Top-laptop-brands-in-India.jpg\",\n    \"description\": \"Description of laptop\",\n    \"tax\": 0,\n    \"items\": [],\n    \"_id\": \"66bd1cfc422c965dc4ad1b73\",\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "Default: Category tax applicability",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Mobiles\",\r\n  \"image\": \"https://www.91-cdn.com/hub/wp-content/uploads/2022/07/Top-laptop-brands-in-India.jpg\",\r\n  \"description\": \"Description of laptop\",\r\n  \"category\": \"66bd1b582477bac47fb44d92\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/subcategories/create",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"subcategories",
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "236"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ec-u4SzXVVzwYLEAFjtQHLBgQeDjIE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Aug 2024 04:39:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Mobiles\",\n    \"image\": \"https://www.91-cdn.com/hub/wp-content/uploads/2022/07/Top-laptop-brands-in-India.jpg\",\n    \"description\": \"Description of laptop\",\n    \"taxApplicability\": true,\n    \"tax\": 18,\n    \"items\": [],\n    \"_id\": \"66bd8678978bde244e6b2a74\",\n    \"__v\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "create itemś",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"MOTOROLA Edge 50\",\r\n  \"image\": \"https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/Stuff/Uploads/ReviewSectionImages/638485265178076931_motorola_edge_50_pro_review_back.jpg\",\r\n  \"description\": \"8 GB RAM | 256 GB ROM\",\r\n  \"baseAmount\": 27999,\r\n  \"subCategory\": \"66bd8678978bde244e6b2a74\" \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/items/create",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"items",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Apple MacBook Air 2020\",\r\n  \"image\": \"https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1685966374/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256711_umnwok.png\",\r\n  \"description\": \"M1 13.3 Inch, 8GB, 256GB, macOS Big Sur, Space Grey)\",\r\n  \"baseAmount\": 82590.00,\r\n  \"discount\": 10000,\r\n  \"subCategory\": \"66bd1cfc422c965dc4ad1b73\" \r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/items/create",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"items",
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "369"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"171-R5KgmwSyFlXmcv2viajQ+MMkOiE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Aug 2024 21:14:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Apple MacBook Air 2020\",\n    \"image\": \"https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1685966374/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256711_umnwok.png\",\n    \"description\": \"M1 13.3 Inch, 8GB, 256GB, macOS Big Sur, Space Grey)\",\n    \"tax\": 0,\n    \"baseAmount\": 82590,\n    \"discount\": 10000,\n    \"totalAmount\": 72590,\n    \"_id\": \"66bd1e52dc71a3044fecd0d3\",\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "Create Items",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"ThinkBook\",\r\n  \"image\": \"https://p2-ofp.static.pub//fes/cms/2023/08/16/i4450lvytzrptdul25gmsa8l68v0b9866878.png\",\r\n  \"description\": \"13th Generation Intel® Core™ i3-1315U Processor (E-cores up to 3.30 GHz P-cores up to 4.50 GHz)\",\r\n  \"baseAmount\": 54000,\r\n  \"subCategory\": \"66bd1cfc422c965dc4ad1b73\" \r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/items/create",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"items",
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "320"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"140-4ebNBiGRT+pobaDWLCag3WFSwcw\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Aug 2024 21:21:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"ThinkBook\",\n    \"image\": \"https://p2-ofp.static.pub//fes/cms/2023/08/16/i4450lvytzrptdul25gmsa8l68v0b9866878.png\",\n    \"description\": \"13th Generation Intel® Core™ i3-1315U Processor (E-cores up to 3.30 GHz P-cores up to 4.50 GHz)\",\n    \"tax\": 0,\n    \"baseAmount\": 54000,\n    \"totalAmount\": 54000,\n    \"_id\": \"66bd1ff6b12dc3b19f6f8095\",\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "Create Items",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"MOTOROLA Edge 50\",\r\n  \"image\": \"https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/Stuff/Uploads/ReviewSectionImages/638485265178076931_motorola_edge_50_pro_review_back.jpg\",\r\n  \"description\": \"8 GB RAM | 256 GB ROM\",\r\n  \"baseAmount\": 27999,\r\n  \"subCategory\": \"66bd8678978bde244e6b2a74\" \r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/items/create",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"items",
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "339"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"153-f3dEuCyo8HFsLKzkZn4tMYg3XKw\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Aug 2024 04:43:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"MOTOROLA Edge 50\",\n    \"image\": \"https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/Stuff/Uploads/ReviewSectionImages/638485265178076931_motorola_edge_50_pro_review_back.jpg\",\n    \"description\": \"8 GB RAM | 256 GB ROM\",\n    \"tax\": 0,\n    \"baseAmount\": 27999,\n    \"totalAmount\": 27999,\n    \"_id\": \"66bd875a978bde244e6b2a77\",\n    \"__v\": 0\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "Get Category",
+					"item": [
+						{
+							"name": "get all category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/categories/all",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"categories",
+										"all"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get all category",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/categories/all",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"categories",
+												"all"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1772"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"6ec-/OPPYHB2qtVa5iWF/flDB10YY5A\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Aug 2024 04:44:11 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"_id\": \"66bd1b582477bac47fb44d92\",\n        \"name\": \"Electronics\",\n        \"image\": \"https://www.shutterstock.com/image-illustration/home-appliances-gas-cooker-tv-260nw-289191653.jpg\",\n        \"description\": \"Description of electronics items\",\n        \"taxApplicability\": true,\n        \"tax\": 18,\n        \"taxType\": \"salesTax\",\n        \"subCategories\": [\n            {\n                \"_id\": \"66bd1cfc422c965dc4ad1b73\",\n                \"name\": \"Laptops\",\n                \"image\": \"https://www.91-cdn.com/hub/wp-content/uploads/2022/07/Top-laptop-brands-in-India.jpg\",\n                \"description\": \"Description of laptop\",\n                \"tax\": 0,\n                \"items\": [\n                    {\n                        \"_id\": \"66bd1e52dc71a3044fecd0d3\",\n                        \"name\": \"Apple MacBook Air 2020\",\n                        \"image\": \"https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1685966374/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256711_umnwok.png\",\n                        \"description\": \"M1 13.3 Inch, 8GB, 256GB, macOS Big Sur, Space Grey)\",\n                        \"tax\": 0,\n                        \"baseAmount\": 82590,\n                        \"discount\": 10000,\n                        \"totalAmount\": 72590,\n                        \"__v\": 0\n                    },\n                    {\n                        \"_id\": \"66bd1ff6b12dc3b19f6f8095\",\n                        \"name\": \"ThinkBook\",\n                        \"image\": \"https://p2-ofp.static.pub//fes/cms/2023/08/16/i4450lvytzrptdul25gmsa8l68v0b9866878.png\",\n                        \"description\": \"13th Generation Intel® Core™ i3-1315U Processor (E-cores up to 3.30 GHz P-cores up to 4.50 GHz)\",\n                        \"tax\": 0,\n                        \"baseAmount\": 54000,\n                        \"totalAmount\": 54000,\n                        \"__v\": 0\n                    }\n                ],\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"66bd8678978bde244e6b2a74\",\n                \"name\": \"Mobiles\",\n                \"image\": \"https://www.91-cdn.com/hub/wp-content/uploads/2022/07/Top-laptop-brands-in-India.jpg\",\n                \"description\": \"Description of laptop\",\n                \"taxApplicability\": true,\n                \"tax\": 18,\n                \"items\": [\n                    {\n                        \"_id\": \"66bd875a978bde244e6b2a77\",\n                        \"name\": \"MOTOROLA Edge 50\",\n                        \"image\": \"https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/Stuff/Uploads/ReviewSectionImages/638485265178076931_motorola_edge_50_pro_review_back.jpg\",\n                        \"description\": \"8 GB RAM | 256 GB ROM\",\n                        \"tax\": 0,\n                        \"baseAmount\": 27999,\n                        \"totalAmount\": 27999,\n                        \"__v\": 0\n                    }\n                ],\n                \"__v\": 0\n            }\n        ],\n        \"__v\": 0\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "get category by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/categories/categoryById/66bd1b582477bac47fb44d92",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"categories",
+										"categoryById",
+										"66bd1b582477bac47fb44d92"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get category by id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/categories/categoryById/66bd1b582477bac47fb44d92",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"categories",
+												"categoryById",
+												"66bd1b582477bac47fb44d92"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1770"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"6ea-2X/NV4a+8YbzXmBBuPdV3n8swUk\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Aug 2024 04:44:57 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"_id\": \"66bd1b582477bac47fb44d92\",\n    \"name\": \"Electronics\",\n    \"image\": \"https://www.shutterstock.com/image-illustration/home-appliances-gas-cooker-tv-260nw-289191653.jpg\",\n    \"description\": \"Description of electronics items\",\n    \"taxApplicability\": true,\n    \"tax\": 18,\n    \"taxType\": \"salesTax\",\n    \"subCategories\": [\n        {\n            \"_id\": \"66bd1cfc422c965dc4ad1b73\",\n            \"name\": \"Laptops\",\n            \"image\": \"https://www.91-cdn.com/hub/wp-content/uploads/2022/07/Top-laptop-brands-in-India.jpg\",\n            \"description\": \"Description of laptop\",\n            \"tax\": 0,\n            \"items\": [\n                {\n                    \"_id\": \"66bd1e52dc71a3044fecd0d3\",\n                    \"name\": \"Apple MacBook Air 2020\",\n                    \"image\": \"https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1685966374/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256711_umnwok.png\",\n                    \"description\": \"M1 13.3 Inch, 8GB, 256GB, macOS Big Sur, Space Grey)\",\n                    \"tax\": 0,\n                    \"baseAmount\": 82590,\n                    \"discount\": 10000,\n                    \"totalAmount\": 72590,\n                    \"__v\": 0\n                },\n                {\n                    \"_id\": \"66bd1ff6b12dc3b19f6f8095\",\n                    \"name\": \"ThinkBook\",\n                    \"image\": \"https://p2-ofp.static.pub//fes/cms/2023/08/16/i4450lvytzrptdul25gmsa8l68v0b9866878.png\",\n                    \"description\": \"13th Generation Intel® Core™ i3-1315U Processor (E-cores up to 3.30 GHz P-cores up to 4.50 GHz)\",\n                    \"tax\": 0,\n                    \"baseAmount\": 54000,\n                    \"totalAmount\": 54000,\n                    \"__v\": 0\n                }\n            ],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"66bd8678978bde244e6b2a74\",\n            \"name\": \"Mobiles\",\n            \"image\": \"https://www.91-cdn.com/hub/wp-content/uploads/2022/07/Top-laptop-brands-in-India.jpg\",\n            \"description\": \"Description of laptop\",\n            \"taxApplicability\": true,\n            \"tax\": 18,\n            \"items\": [\n                {\n                    \"_id\": \"66bd875a978bde244e6b2a77\",\n                    \"name\": \"MOTOROLA Edge 50\",\n                    \"image\": \"https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/Stuff/Uploads/ReviewSectionImages/638485265178076931_motorola_edge_50_pro_review_back.jpg\",\n                    \"description\": \"8 GB RAM | 256 GB ROM\",\n                    \"tax\": 0,\n                    \"baseAmount\": 27999,\n                    \"totalAmount\": 27999,\n                    \"__v\": 0\n                }\n            ],\n            \"__v\": 0\n        }\n    ],\n    \"__v\": 0\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Get sub-Category",
+					"item": [
+						{
+							"name": "Get Sub Category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/subcategories/all",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"subcategories",
+										"all"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get Sub Category",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/subcategories/all",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"subcategories",
+												"all"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1479"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"5c7-NYwsARfJEXF2mkjnWN7Ss8aC+hY\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Aug 2024 04:45:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"_id\": \"66bd1cfc422c965dc4ad1b73\",\n        \"name\": \"Laptops\",\n        \"image\": \"https://www.91-cdn.com/hub/wp-content/uploads/2022/07/Top-laptop-brands-in-India.jpg\",\n        \"description\": \"Description of laptop\",\n        \"tax\": 0,\n        \"items\": [\n            {\n                \"_id\": \"66bd1e52dc71a3044fecd0d3\",\n                \"name\": \"Apple MacBook Air 2020\",\n                \"image\": \"https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1685966374/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256711_umnwok.png\",\n                \"description\": \"M1 13.3 Inch, 8GB, 256GB, macOS Big Sur, Space Grey)\",\n                \"tax\": 0,\n                \"baseAmount\": 82590,\n                \"discount\": 10000,\n                \"totalAmount\": 72590,\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"66bd1ff6b12dc3b19f6f8095\",\n                \"name\": \"ThinkBook\",\n                \"image\": \"https://p2-ofp.static.pub//fes/cms/2023/08/16/i4450lvytzrptdul25gmsa8l68v0b9866878.png\",\n                \"description\": \"13th Generation Intel® Core™ i3-1315U Processor (E-cores up to 3.30 GHz P-cores up to 4.50 GHz)\",\n                \"tax\": 0,\n                \"baseAmount\": 54000,\n                \"totalAmount\": 54000,\n                \"__v\": 0\n            }\n        ],\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"66bd8678978bde244e6b2a74\",\n        \"name\": \"Mobiles\",\n        \"image\": \"https://www.91-cdn.com/hub/wp-content/uploads/2022/07/Top-laptop-brands-in-India.jpg\",\n        \"description\": \"Description of laptop\",\n        \"taxApplicability\": true,\n        \"tax\": 18,\n        \"items\": [\n            {\n                \"_id\": \"66bd875a978bde244e6b2a77\",\n                \"name\": \"MOTOROLA Edge 50\",\n                \"image\": \"https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/Stuff/Uploads/ReviewSectionImages/638485265178076931_motorola_edge_50_pro_review_back.jpg\",\n                \"description\": \"8 GB RAM | 256 GB ROM\",\n                \"tax\": 0,\n                \"baseAmount\": 27999,\n                \"totalAmount\": 27999,\n                \"__v\": 0\n            }\n        ],\n        \"__v\": 0\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "get By Attribute",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"_id\": \"66bd1cfc422c965dc4ad1b73\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/subcategories/getByAttribute",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"subcategories",
+										"getByAttribute"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get by id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"_id\": \"66bcc867761dc697b9dae28c\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/subcategories/getByAttribute",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"subcategories",
+												"getByAttribute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "327"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"147-/V1RlB6dI0po7+tj26bW2Mgp9zM\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Aug 2024 18:33:07 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"_id\": \"66bcc867761dc697b9dae28c\",\n    \"name\": \"Laptops\",\n    \"image\": \"http://example.com/laptops.jpg\",\n    \"description\": \"Portable computers\",\n    \"tax\": 0,\n    \"items\": [\n        {\n            \"_id\": \"66bcf40f79da140e443c110a\",\n            \"name\": \"Laptop\",\n            \"image\": \"http://example.com/laptop.jpg\",\n            \"description\": \"A high-end laptop\",\n            \"tax\": 0,\n            \"baseAmount\": 1000,\n            \"discount\": 100,\n            \"__v\": 0\n        }\n    ],\n    \"__v\": 0\n}"
+								},
+								{
+									"name": "get by Attributes",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Laptops\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/subcategories/getByAttribute",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"subcategories",
+												"getByAttribute"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "327"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"147-/V1RlB6dI0po7+tj26bW2Mgp9zM\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 14 Aug 2024 18:34:38 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"_id\": \"66bcc867761dc697b9dae28c\",\n    \"name\": \"Laptops\",\n    \"image\": \"http://example.com/laptops.jpg\",\n    \"description\": \"Portable computers\",\n    \"tax\": 0,\n    \"items\": [\n        {\n            \"_id\": \"66bcf40f79da140e443c110a\",\n            \"name\": \"Laptop\",\n            \"image\": \"http://example.com/laptop.jpg\",\n            \"description\": \"A high-end laptop\",\n            \"tax\": 0,\n            \"baseAmount\": 1000,\n            \"discount\": 100,\n            \"__v\": 0\n        }\n    ],\n    \"__v\": 0\n}"
+								}
+							]
+						},
+						{
+							"name": "getAllSubCategoryUnderCategory",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/subcategories/getAllSubCategoryUnderCategory/66bd1b582477bac47fb44d92",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"subcategories",
+										"getAllSubCategoryUnderCategory",
+										"66bd1b582477bac47fb44d92"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/subcategories/getAllSubCategoryUnderCategory/66bd1b582477bac47fb44d92",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"subcategories",
+												"getAllSubCategoryUnderCategory",
+												"66bd1b582477bac47fb44d92"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1553"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"611-8JqilAPVCA+YBvtDEOHoUda/Hrw\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Aug 2024 04:57:44 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": false,\n    \"data\": {\n        \"_id\": \"66bd1b582477bac47fb44d92\",\n        \"subCategories\": [\n            {\n                \"_id\": \"66bd1cfc422c965dc4ad1b73\",\n                \"name\": \"Laptops\",\n                \"image\": \"https://www.91-cdn.com/hub/wp-content/uploads/2022/07/Top-laptop-brands-in-India.jpg\",\n                \"description\": \"Description of laptop\",\n                \"tax\": 0,\n                \"items\": [\n                    {\n                        \"_id\": \"66bd1e52dc71a3044fecd0d3\",\n                        \"name\": \"Apple MacBook Air 2020\",\n                        \"image\": \"https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1685966374/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256711_umnwok.png\",\n                        \"description\": \"M1 13.3 Inch, 8GB, 256GB, macOS Big Sur, Space Grey)\",\n                        \"tax\": 0,\n                        \"baseAmount\": 82590,\n                        \"discount\": 10000,\n                        \"totalAmount\": 72590,\n                        \"__v\": 0\n                    },\n                    {\n                        \"_id\": \"66bd1ff6b12dc3b19f6f8095\",\n                        \"name\": \"ThinkBook\",\n                        \"image\": \"https://p2-ofp.static.pub//fes/cms/2023/08/16/i4450lvytzrptdul25gmsa8l68v0b9866878.png\",\n                        \"description\": \"13th Generation Intel® Core™ i3-1315U Processor (E-cores up to 3.30 GHz P-cores up to 4.50 GHz)\",\n                        \"tax\": 0,\n                        \"baseAmount\": 54000,\n                        \"totalAmount\": 54000,\n                        \"__v\": 0\n                    }\n                ],\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"66bd8678978bde244e6b2a74\",\n                \"name\": \"Mobiles\",\n                \"image\": \"https://www.91-cdn.com/hub/wp-content/uploads/2022/07/Top-laptop-brands-in-India.jpg\",\n                \"description\": \"Description of laptop\",\n                \"taxApplicability\": true,\n                \"tax\": 18,\n                \"items\": [\n                    {\n                        \"_id\": \"66bd875a978bde244e6b2a77\",\n                        \"name\": \"MOTOROLA Edge 50\",\n                        \"image\": \"https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/Stuff/Uploads/ReviewSectionImages/638485265178076931_motorola_edge_50_pro_review_back.jpg\",\n                        \"description\": \"8 GB RAM | 256 GB ROM\",\n                        \"tax\": 0,\n                        \"baseAmount\": 27999,\n                        \"totalAmount\": 27999,\n                        \"__v\": 0\n                    }\n                ],\n                \"__v\": 0\n            }\n        ]\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Get Items",
+					"item": [
+						{
+							"name": "getAllItemsUnderCategory",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/items/getAllItemsUnderCategory/66bd1b582477bac47fb44d92",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"items",
+										"getAllItemsUnderCategory",
+										"66bd1b582477bac47fb44d92"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/items/getAllItemsUnderCategory/66bd1b582477bac47fb44d92",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"items",
+												"getAllItemsUnderCategory",
+												"66bd1b582477bac47fb44d92"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1055"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"41f-9f9sGHvHERejeLEwxa4bIOERoL8\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Aug 2024 04:58:40 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": false,\n    \"data\": [\n        {\n            \"_id\": \"66bd1e52dc71a3044fecd0d3\",\n            \"name\": \"Apple MacBook Air 2020\",\n            \"image\": \"https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1685966374/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256711_umnwok.png\",\n            \"description\": \"M1 13.3 Inch, 8GB, 256GB, macOS Big Sur, Space Grey)\",\n            \"tax\": 0,\n            \"baseAmount\": 82590,\n            \"discount\": 10000,\n            \"totalAmount\": 72590,\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"66bd1ff6b12dc3b19f6f8095\",\n            \"name\": \"ThinkBook\",\n            \"image\": \"https://p2-ofp.static.pub//fes/cms/2023/08/16/i4450lvytzrptdul25gmsa8l68v0b9866878.png\",\n            \"description\": \"13th Generation Intel® Core™ i3-1315U Processor (E-cores up to 3.30 GHz P-cores up to 4.50 GHz)\",\n            \"tax\": 0,\n            \"baseAmount\": 54000,\n            \"totalAmount\": 54000,\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"66bd875a978bde244e6b2a77\",\n            \"name\": \"MOTOROLA Edge 50\",\n            \"image\": \"https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/Stuff/Uploads/ReviewSectionImages/638485265178076931_motorola_edge_50_pro_review_back.jpg\",\n            \"description\": \"8 GB RAM | 256 GB ROM\",\n            \"tax\": 0,\n            \"baseAmount\": 27999,\n            \"totalAmount\": 27999,\n            \"__v\": 0\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "getAllItemsUnderSubCategory",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/items/getAllItemsUnderSubCategory/66bd1cfc422c965dc4ad1b73",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"items",
+										"getAllItemsUnderSubCategory",
+										"66bd1cfc422c965dc4ad1b73"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request Copy",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/items/getAllItemsUnderSubCategory/66bd1cfc422c965dc4ad1b73",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"items",
+												"getAllItemsUnderSubCategory",
+												"66bd1cfc422c965dc4ad1b73"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "715"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2cb-YoXktAceA+QoFRazcI3Z0K18rRE\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Aug 2024 04:59:24 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": false,\n    \"data\": [\n        {\n            \"_id\": \"66bd1e52dc71a3044fecd0d3\",\n            \"name\": \"Apple MacBook Air 2020\",\n            \"image\": \"https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1685966374/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256711_umnwok.png\",\n            \"description\": \"M1 13.3 Inch, 8GB, 256GB, macOS Big Sur, Space Grey)\",\n            \"tax\": 0,\n            \"baseAmount\": 82590,\n            \"discount\": 10000,\n            \"totalAmount\": 72590,\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"66bd1ff6b12dc3b19f6f8095\",\n            \"name\": \"ThinkBook\",\n            \"image\": \"https://p2-ofp.static.pub//fes/cms/2023/08/16/i4450lvytzrptdul25gmsa8l68v0b9866878.png\",\n            \"description\": \"13th Generation Intel® Core™ i3-1315U Processor (E-cores up to 3.30 GHz P-cores up to 4.50 GHz)\",\n            \"tax\": 0,\n            \"baseAmount\": 54000,\n            \"totalAmount\": 54000,\n            \"__v\": 0\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "getByAttribute",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/items/getByAttribute?attribute=name&value=Apple MacBook Air 2020",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"items",
+										"getByAttribute"
+									],
+									"query": [
+										{
+											"key": "attribute",
+											"value": "name"
+										},
+										{
+											"key": "value",
+											"value": "Apple MacBook Air 2020"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "getByAttribute",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/items/getByAttribute?attribute=_id&value=66bd1e52dc71a3044fecd0d3",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"items",
+												"getByAttribute"
+											],
+											"query": [
+												{
+													"key": "attribute",
+													"value": "_id"
+												},
+												{
+													"key": "value",
+													"value": "66bd1e52dc71a3044fecd0d3"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "402"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"192-OqfTjPIbooo6waIRQVfG3dq8w7Y\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Aug 2024 05:34:30 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": false,\n    \"data\": [\n        {\n            \"_id\": \"66bd1e52dc71a3044fecd0d3\",\n            \"name\": \"Apple MacBook Air 2020 updated\",\n            \"image\": \"https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1685966374/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256711_umnwok.png\",\n            \"description\": \"M1 13.3 Inch, 8GB, 256GB, macOS Big Sur, Space Grey)\",\n            \"tax\": 0,\n            \"baseAmount\": 82590,\n            \"discount\": 10000,\n            \"totalAmount\": 72590,\n            \"__v\": 0\n        }\n    ]\n}"
+								},
+								{
+									"name": "getByAttribute",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/items/getByAttribute?attribute=name&value=Apple MacBook Air 2020 updated",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"items",
+												"getByAttribute"
+											],
+											"query": [
+												{
+													"key": "attribute",
+													"value": "name"
+												},
+												{
+													"key": "value",
+													"value": "Apple MacBook Air 2020 updated"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "402"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"192-OqfTjPIbooo6waIRQVfG3dq8w7Y\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 15 Aug 2024 05:35:03 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"error\": false,\n    \"data\": [\n        {\n            \"_id\": \"66bd1e52dc71a3044fecd0d3\",\n            \"name\": \"Apple MacBook Air 2020 updated\",\n            \"image\": \"https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1685966374/Croma%20Assets/Computers%20Peripherals/Laptop/Images/256711_umnwok.png\",\n            \"description\": \"M1 13.3 Inch, 8GB, 256GB, macOS Big Sur, Space Grey)\",\n            \"tax\": 0,\n            \"baseAmount\": 82590,\n            \"discount\": 10000,\n            \"totalAmount\": 72590,\n            \"__v\": 0\n        }\n    ]\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Edit",
+			"item": [
+				{
+					"name": "edit category",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Updated Electronics\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/categories/edit/66bd1b582477bac47fb44d92",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories",
+								"edit",
+								"66bd1b582477bac47fb44d92"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Updated Electronics\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/categories/edit/66bd1b582477bac47fb44d92",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"categories",
+										"edit",
+										"66bd1b582477bac47fb44d92"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "377"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"179-W+tzkPb+jDKD34TELfjLyHdycNQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Aug 2024 05:01:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": false,\n    \"data\": {\n        \"_id\": \"66bd1b582477bac47fb44d92\",\n        \"name\": \"Updated Electronics\",\n        \"image\": \"https://www.shutterstock.com/image-illustration/home-appliances-gas-cooker-tv-260nw-289191653.jpg\",\n        \"description\": \"Description of electronics items\",\n        \"taxApplicability\": true,\n        \"tax\": 18,\n        \"taxType\": \"salesTax\",\n        \"subCategories\": [\n            \"66bd1cfc422c965dc4ad1b73\",\n            \"66bd8678978bde244e6b2a74\"\n        ],\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "edit sub category",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Updated subcategory laptop \",\r\n  \"description\": \"Updated description sub-category\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/subcategories/edit/66bd1cfc422c965dc4ad1b73",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"subcategories",
+								"edit",
+								"66bd1cfc422c965dc4ad1b73"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "edit category",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Updated subcategory laptop \",\r\n  \"description\": \"Updated description sub-category\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/subcategories/edit/66bd1cfc422c965dc4ad1b73",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"subcategories",
+										"edit",
+										"66bd1cfc422c965dc4ad1b73"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "372"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"174-x0FWw0NbdA0wZA5xMTInNryhUx4\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Aug 2024 05:04:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": false,\n    \"data\": {\n        \"_id\": \"66bd1cfc422c965dc4ad1b73\",\n        \"name\": \"Updated subcategory laptop \",\n        \"image\": \"https://www.91-cdn.com/hub/wp-content/uploads/2022/07/Top-laptop-brands-in-India.jpg\",\n        \"description\": \"Updated description sub-category\",\n        \"tax\": 0,\n        \"items\": [\n            \"66bd1e52dc71a3044fecd0d3\",\n            \"66bd1f5ce629cede7a56d221\",\n            \"66bd1f919882579b6511f865\",\n            \"66bd1ff6b12dc3b19f6f8095\"\n        ],\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Apple MacBook Air 2020 updated\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/items/edit/66bd1e52dc71a3044fecd0d3",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"items",
+								"edit",
+								"66bd1e52dc71a3044fecd0d3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/items/search?name=l",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"items",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "l"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:4000",
+			"type": "string"
+		}
+	]
+}
